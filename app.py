@@ -3,8 +3,10 @@
 import httpx
 from flask import Flask
 from flask_restx import Resource, Api, reqparse, inputs, fields
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 api = Api(app, title='Website Scraper API', doc='/swagger/')
 
 # Get rid of field mask parameter in documentation
