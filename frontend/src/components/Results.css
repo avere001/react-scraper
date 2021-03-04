@@ -5,4 +5,15 @@
 .react-tabs__tab-list {
     display: flex;
     flex-direction: column;
+    border-bottom: 0;
+}
+
+.react-tabs__tab--selected {
+    border-radius: 0;
+    bottom: 0;
+}
+
+.result-content {
+    width: 70vw;
+    height: 60vh;
 }

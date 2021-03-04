@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import "./UrlEntry.css"
 
 export default function UrlEntry(props) {
     const [currentInput, setCurrentInput] = useState('')
@@ -22,12 +23,11 @@ export default function UrlEntry(props) {
                 response.json().then((data) => addResult(data))
             }}
         )
-        // addResult({'url': currentInput, 'content': "<p>Such content</p>"})
         setCurrentInput('');
         event.preventDefault();
     }
 
     return <form onSubmit={handleSubmit}>
-        <input value={currentInput} onChange={handleChange}/>
+        <input placeholder="Enter a URL and press enter." className="url-input" value={currentInput} onChange={handleChange}/>
     </form>
 }
