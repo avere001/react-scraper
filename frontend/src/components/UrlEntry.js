@@ -8,8 +8,21 @@ export default function UrlEntry(props) {
     function handleChange(event) {
         setCurrentInput(event.target.value);
     }
+
     function handleSubmit(event) {
-        addResult({'url': currentInput, 'content': "<p>Such content</p>"})
+        let url = new URL('http://localhost:5000/website')
+        url.search = new URLSearchParams({url: currentInput}).toString()
+
+        fetch(url).then((response) => {
+            if (!response.ok) {
+                response.json().then((data) => {
+                    console.log(data)
+                })
+            } else {
+                response.json().then((data) => addResult(data))
+            }}
+        )
+        // addResult({'url': currentInput, 'content': "<p>Such content</p>"})
         setCurrentInput('');
         event.preventDefault();
     }

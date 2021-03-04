@@ -5,9 +5,7 @@ export default function Results(props) {
     return scraperResults.map((result) => (
         <div key={result.url}>
             <p>{result.url}</p>
-            <div>
-                <pre>{result.content}</pre>
-            </div>
+            <textarea value={result.content} />
         </div>)
     )
 
