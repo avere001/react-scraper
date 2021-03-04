@@ -1,25 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useEffect, useState} from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [scraperResults, setScraperResults] = useState([]);
+
+    function addResult(result) {
+        console.log("asdasdasd")
+        setScraperResults((prevResults) => {
+            let newResults = prevResults.map((prevResult) => ({
+                    ...prevResult
+                }
+            ))
+            newResults.push(result)
+            return newResults
+        })
+    }
+
+    useEffect(() =>
+            addResult({'url': 'https://github.com', 'content': '<h1>WOW</h1>'}),
+        [])
+
+    useEffect(() => console.log("WTF"), [])
+
+    return (
+        <div className="App">
+            {scraperResults.map((result) => (
+                <div>
+                    <p>{result.url}</p>
+                    <div>
+                        <pre>{result.content}</pre>
+                    </div>
+                </div>)
+            )}
+        </div>
+    );
 }
 
 export default App;
