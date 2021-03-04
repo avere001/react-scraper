@@ -1,9 +1,11 @@
+#!/bin/env python
+
 import httpx
 from flask import Flask
 from flask_restx import Resource, Api, reqparse, inputs, fields
 
 app = Flask(__name__)
-api = Api(app)
+api = Api(app, title='Website Scraper API', doc='/swagger/')
 
 # Get rid of field mask parameter in documentation
 app.config['RESTX_MASK_SWAGGER'] = False
