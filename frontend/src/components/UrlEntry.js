@@ -36,6 +36,7 @@ export default function UrlEntry(props) {
     }
 
     return <form onSubmit={handleSubmit}>
-        <input placeholder="Enter a URL and press enter." className="url-input" value={currentInput} onChange={handleChange}/>
+        <input placeholder="Enter a URL." className="url-input" value={currentInput} onChange={handleChange}/>
+        <input type="submit" />
     </form>
 }
