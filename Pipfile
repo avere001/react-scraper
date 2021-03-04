@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 httpx = "*"
 Flask = "*"
+flask-restful = "*"
 
 [dev-packages]
 ipython = "*"
