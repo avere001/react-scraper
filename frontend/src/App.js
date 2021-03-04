@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, {useEffect, useState} from "react";
 import Results from "./components/Results";
+import UrlEntry from "./components/UrlEntry";
 
 function App() {
     const [scraperResults, setScraperResults] = useState([]);
@@ -27,6 +28,7 @@ function App() {
     return (
         <div className="App">
             <Results scraperResults={scraperResults}/>
+            <UrlEntry addResult={addResult}/>
         </div>
     );
 }
