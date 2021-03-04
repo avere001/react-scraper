@@ -17,6 +17,7 @@ export default function UrlEntry(props) {
         fetch(url).then((response) => {
             if (!response.ok) {
                 response.json().then((data) => {
+                    alert(`There was an issue requesting the content from ${fixedInput}: ${data.message}. See the console for more details.`)
                     console.log(data)
                 })
             } else {
