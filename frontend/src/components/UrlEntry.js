@@ -12,7 +12,14 @@ export default function UrlEntry(props) {
 
     function handleSubmit(event) {
         let url = new URL('http://localhost:5000/website')
-        url.search = new URLSearchParams({url: currentInput}).toString()
+
+        let fixedInput = currentInput;
+        if (!fixedInput.startsWith('https://') && !fixedInput.startsWith('http://')) {
+            fixedInput = `https://${currentInput}`
+        }
+
+        url.search = new URLSearchParams({url: fixedInput}).toString()
+
 
         fetch(url).then((response) => {
             if (!response.ok) {
